@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Blockly Demos</title>
+  <!-- generating code-->
+  <script src="../../blockly_compressed.js"></script>
+  <script src="../../javascript_compressed.js"></script>
+  <!-- python_compressed.js -->
+  <script src="../../blocks_compressed.js"></script>
+  <script src="../../msg/js/es.js"></script>
+  <script src="JS/botones.js"></script>
+  <!-- style -->
+   <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/estilos.css" media="">
+</head>
+
+<body >
+  <div class="container-fluid">
+   <!--  <div class="row">
+      <div class="row">
+        <div class="col text-center"> -->
+          <header>
+            
+            <h1>Juego en Blockly fs</h1>
+          </header>
+        <!-- 
+        </div>        
+      </div>
+      <div class="row" class="col align-self-center"> -->
+        <div id="informacion" >
+          <p><b>Tu tienes <span id="capacity"></span> block(s) .</b></p>
+        </div>            
+     <!--  </div>
+    </div> -->
+
+    <div id="contenedor">
+      <div id="blocklyDiv" ></div>
+      <div id="botones">
+        <button id="btnInfo" onclick="ampliar()">Instrucciones</button>
+        <button id="btnPistas" onclick="ampliar()">Pistas</button>
+        <button id="btnRun" class="btn btn-danger" onclick="Ejecutar()">Ejecutar Programa</button>
+      </div>
+      <canvas id="lienzo" width="400px" height="500px"></canvas>
+    </div>
+
+
+    <div id="respuesta">
+      <!-- <form action="/action_page.php" class="form-inline">
+        <div class="form-group mb-2">
+          <input type="text" readonly class="form-control-plaintext" value="Ingresa tu respuesta:">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control" id="resp" placeholder="Ingrese respuesta">
+        </div>
+        <button type="submit" class="btn btn-primary">ACEPTAR</button>
+      </form> -->
+      <form action="">
+        ingrese respuesta:
+        <input type="text" name="resp">
+              <input type="submit" name="" value="Aceptar">
+      </form>
+    </div>
+    <footer> Learning Analitycs</footer>
+
+  </div>  
+
+  <xml id="toolbox" style="display: none">    
+    <block type="direction_up"></block>
+    <block type="direction_down"></block>
+    <block type="direction_left"></block>
+    <block type="direction_right"></block>
+  </xml>
+
+
+  <!-- scripts de brockly -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="JS/scriptBlockly.js"></script>
+  <script src="JS/canvas.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+  <script src="JS/baseDatos.js"></script>
+  <script src="JS/Funciones.js"></script>
+
+</body>
+</html>

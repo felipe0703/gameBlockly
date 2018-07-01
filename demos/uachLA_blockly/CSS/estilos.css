@@ -1,0 +1,87 @@
+*{
+  margin:0;
+  padding:0;
+  list-style:none;
+  text-decoration:none;
+}
+body {
+  /*overflow:hidden; evita el scroll en el navegador */
+  /*background-color: #47B763;*/
+  background: url(../IMG/fondo.jpg);
+  background-size: cover; 
+  font-family: sans-serif;
+}
+
+header{
+  position: relative;
+  text-align: center;
+  /*margin: 5vh ;*/
+  /*font-family:sans-serif;*/
+  /*font-size: 30px;*/
+  color: red;
+  /*background: blue;*/
+}
+#informacion{
+  position: relative;
+  text-align: center;
+  /*background: yellow;*/
+}
+#contenedor{
+  position: relative;
+  margin:5vh auto;
+  width:1100px;
+  height:600px; 
+  background: red;
+}
+#lienzo{
+  background: url(../IMG/grid.jpg);
+  /*background: rgba(0,0,0,.5);*/
+}
+#blocklyDiv{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 700px;
+  height: 600px;
+}
+#botones{
+  position: absolute;
+  float: left;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 200px;
+  background: #ccc;
+}
+#botones button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  display:block;
+  position: relative;
+  margin:20px auto;
+  padding:10px;
+  cursor:pointer;
+  z-index: 0;
+}
+
+/* #botones button{
+  display:block;
+  position: relative;
+  margin:20px auto;
+  padding:10px;
+  cursor:pointer;
+} */
+
+#respuesta{
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+}
+footer{
+  text-align: center;
+}
