@@ -99,5 +99,8 @@ function Ejecutar() {
 	}
 }
 
+function instrucciones(){
+
+}
 
 
