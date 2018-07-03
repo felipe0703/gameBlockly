@@ -77,7 +77,10 @@ function Izquierda(){
 	jugador.x -= 75;
 }
 
-
+function reset(){
+				jugador.x = 35;
+				jugador.y = 85;
+			}
 
 
 /*=============================================
@@ -181,7 +184,8 @@ var juego = {
 			}
 
 			colisiones();
-
+			
+			
 			//COLISIÓN DE IZQ A DER
 			if(colisiones() && jugador.x2 < bloques[i].x1 + jugador.movimiento_x){
 

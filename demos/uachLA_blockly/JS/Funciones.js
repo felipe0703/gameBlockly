@@ -38,9 +38,9 @@ function generarCodigo(event) {
         // document.getElementById('codigo').innerHTML = code;
         /*console.log(event.oldParentId)
         console.log(event.oldInputName)
-		console.log(event.oldCoordinate)
-		console.log(event.newParentId)
-		console.log(event.newInputName)  
+    		console.log(event.oldCoordinate)
+    		console.log(event.newParentId)
+    		console.log(event.newInputName)  
         console.log(event.newCoordinate)*/
         // console.log(code)
         pushFirebase(1,1,5,"BLOCK_MOVE",event.newCoordinate);
@@ -91,16 +91,70 @@ function izquierda(){
 }
 
 function Ejecutar() {
-	// body...
+	
+  var runButton = document.getElementById('runButton');
+  var resetButton = document.getElementById('resetButton');
+  // Ensure that Reset button is at least as wide as Run button.
+  if (!resetButton.style.minWidth) {
+    resetButton.style.minWidth = runButton.offsetWidth + 'px';
+  }
+  runButton.style.display = 'none';
+  resetButton.style.display = 'inline';
+  workspacePlayground.traceOn(true);
+
 	try {
 	  eval(code);
 	} catch (e) {
 	  alert(e);
 	}
 }
+function Reset(){
+  var runButton = document.getElementById('runButton');
+  runButton.style.display = 'inline';
+  document.getElementById('resetButton').style.display = 'none';
+  workspacePlayground.traceOn(false);
+  reset();
+}
+
 
 function instrucciones(){
 
 }
 
 
+// BlocklyGames.bindClick('runButton', runButtonClick);
+// BlocklyGames.bindClick('resetButton', resetButtonClick);
+
+
+// Maze.runButtonClick = function(e) {
+//   console.Log("click boton")
+//   // Prevent double-clicks or double-taps.
+//   if (BlocklyInterface.eventSpam(e)) {
+//     return;
+//   }
+//   BlocklyDialogs.hideDialog(false);
+//   var runButton = document.getElementById('runButton');
+//   var resetButton = document.getElementById('resetButton');
+//   // Ensure that Reset button is at least as wide as Run button.
+//   if (!resetButton.style.minWidth) {
+//     resetButton.style.minWidth = runButton.offsetWidth + 'px';
+//   }
+//   runButton.style.display = 'none';
+//   resetButton.style.display = 'inline';
+//   BlocklyGames.workspace.traceOn(true);
+//   Maze.reset(false);
+//   Maze.execute();
+// };
+
+// Maze.resetButtonClick = function(e) {
+//   // Prevent double-clicks or double-taps.
+//   if (BlocklyInterface.eventSpam(e)) {
+//     return;
+//   }
+//   var runButton = document.getElementById('runButton');
+//   runButton.style.display = 'inline';
+//   document.getElementById('resetButton').style.display = 'none';
+//   BlocklyGames.workspace.traceOn(false);
+//   Maze.reset(false);
+//   //Maze.levelHelp();
+// };

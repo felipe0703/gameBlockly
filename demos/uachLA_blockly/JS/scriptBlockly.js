@@ -4,8 +4,8 @@ var workspacePlayground = Blockly.inject('blocklyDiv',
             toolbox: document.getElementById('toolbox'),
             maxBlocks:6,
             toolboxPosition:"end",
-            trashcan: true,/*
-            zoom:
+            trashcan: true,
+            /*zoom:
               {controls: true,
                 wheel: true,
                 startScale: 1.0,
