@@ -59,6 +59,12 @@ header{
   margin:20px auto;
   /*z-index: 0;*/
 }
+#botones a{
+  /*display: inline-block;*/
+  /*display:block;*/
+  margin:20px 8vw;
+  /*text-align: center;*/
+}
 #lienzo{
   background: url(../IMG/grid.jpg);
   /*background: rgba(0,0,0,.5);*/

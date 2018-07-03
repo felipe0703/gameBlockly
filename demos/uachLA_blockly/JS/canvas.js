@@ -103,7 +103,7 @@ var juego = {
 		OPRIMIR TECLADO
 		=============================================*/
 	 	
-	 	tecla.preventDefault();
+	 	// tecla.preventDefault();
 	 	switch(tecla.keyCode){
 	 		case 37: datos.izquierda = true; break;
 	 		case 38: datos.arriba = true; break;
@@ -119,7 +119,7 @@ var juego = {
 		SOLTAR TECLADO
 		=============================================*/
 
-	 	tecla.preventDefault();
+	 	// tecla.preventDefault();
 	 	switch(tecla.keyCode){
 	 		case 37: datos.izquierda = false; break;
 	 		case 38: datos.arriba = false; break;
@@ -254,10 +254,8 @@ var juego = {
 
 			ctx.fillRect(bloques[i].x, bloques[i].y, bloques[i].ancho, bloques[i].alto);	
 		}
-
 	}
-
 }
 	
-juego.teclado();
+// juego.teclado();
 juego.tiempo();

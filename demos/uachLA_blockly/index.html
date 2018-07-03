@@ -20,7 +20,6 @@
 </head>
 
 <body >
-
   <div class="container-fluid">
     <header class="row h1">
       <div class="col-md-12">
@@ -29,7 +28,7 @@
     </header>
     <section class="row informacion">
       <div class="col-md-12">
-          <p><b>Tu tienes <span id="capacity"></span> block(s) .</b></p>
+          <p><b> Nivel 1</b> Tienes <span id="capacity"></span> blocks</p>
       </div> 
     </section>      
     
@@ -37,17 +36,13 @@
       <div class="contenedor col-md-9">
         <div id="contenedor">
           <div id="blocklyDiv" ></div>
-
           <div id="botones">
-            
-            
+            <!-- <button id="btnInfo"  class="btn btn-outline-info " onclick="instrucciones()">Instrucciones</button> -->
 
-            <button id="btnInfo"  class="btn btn-outline-info " onclick="instrucciones()">Instrucciones</button>
+            <a href="#" class="btn btn-outline-info btn-lg " data-toggle= "modal" data-target="#quienes-somos" >Instrucciones</a>
 
-            <!-- <button id="btnPistas" class="btn btn-danger btn-lg"  onclick="ampliar()">Pistas</button>
- -->
-            <button id="btnRun" class="btn btn-outline-danger btn-lg" onclick="Ejecutar()">Ejecutar Programa</button>
-
+            <!-- <button id="btnPistas" class="btn btn-danger btn-lg"  onclick="ampliar()">Pistas</button> -->
+            <button id="btnRun"  class="btn btn-outline-danger btn-lg" onclick="Ejecutar()">  Ejecutar Programa</button>
           </div>
           <canvas id="lienzo" width="400px" height="500px"></canvas>
         </div>        
@@ -75,27 +70,33 @@
               <hr>
               <input class="denominador form-control form-control-lg" type="text" name="denominador" placeholder="Denominador">
             </div>
-
+          
             <input class="btnAceptar btn btn-primary btn-block" type="submit" name="" value="Aceptar">
-          </form>   -->
+          </form> -->
 
+          <label >
+                Ingrese Respuesta:
+          </label>
 
           <!-- opcion3 -->
-         <!--  <div class="input-group">
-           <input type="text" class="form-control">
-           <div class="input-group-prepend">
-             <span class="input-group-text" id="">/</span>
-           </div>
-           <input type="text" class="form-control">
-         </div> -->
+        <!--  <div class="input-group">
+          <input type="text" class="form-control">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="">/</span>
+          </div>
+          <input type="text" class="form-control">
+        </div> -->
           <!-- opcion2 -->
+
+
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">numerador</span>
             </div>
-            <input type="text" class="form-control" aria-label="Default">
-
+            <input type="text"  name="hola" class="form-control" >
+            <!-- aria-label="Default" -->
           </div>
+
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">Denominador</span>
@@ -111,7 +112,30 @@
 
     <footer class="col-md-12"> Learning Analitycs</footer>
 
-  </div>  
+  </div>
+  <!-- Modal -->
+
+  <div class="modal fade" id="quienes-somos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Instrucciones de uso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quis, atque distinctio illum minus consectetur, quae explicabo eveniet dolorum voluptatum excepturi autem illo laudantium, iusto itaque vero tempora quos eum.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
 
   <xml id="toolbox" style="display: none">    
     <block type="direction_up"></block>
@@ -128,10 +152,10 @@
 
   <!-- scripts de brockly -->
   <script src="JS/scriptBlockly.js"></script>
-  <script src="JS/canvas.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
   <script src="JS/baseDatos.js"></script>
   <script src="JS/Funciones.js"></script>
+  <script src="JS/canvas.js"></script>
 
 </body>
 </html>
