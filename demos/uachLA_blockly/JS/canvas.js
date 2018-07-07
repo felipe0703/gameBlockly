@@ -17,8 +17,8 @@ PROPIEDADES DEL OBJETO JUGADOR
 var jugador = {
 	x: 35,
 	y: 85,
-	ancho: 30,
-	alto: 30,
+	ancho: 50,
+	alto: 50,
 	color: "red",
 	movimiento_x: 0,
 	movimiento_y: 0,
@@ -27,7 +27,7 @@ var jugador = {
 	x2: null,
 	y1: null,
 	y2: null
-}
+};
 
 /*=============================================
 PROPIEDADES DEL OBJETO BLOQUES
@@ -247,8 +247,12 @@ var juego = {
 
 		//DIBUJAR JUGADOR
 
-		ctx.fillStyle=jugador.color;
-		ctx.fillRect(jugador.x,jugador.y,jugador.ancho,jugador.alto);
+		
+		var img=document.getElementById("pj1");
+		ctx.drawImage(img, jugador.x, jugador.y,jugador.ancho,jugador.alto);
+		
+		//ctx.fillStyle = jugador.color;
+		//ctx.fillRect(jugador.x,jugador.y,jugador.ancho,jugador.alto);
 
 		//DIBUJAR BLOQUES
 
