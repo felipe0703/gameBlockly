@@ -102,11 +102,13 @@ function Ejecutar() {
   resetButton.style.display = 'inline';
   workspacePlayground.traceOn(true);
 
-	try {
-	  eval(code);
-	} catch (e) {
-	  alert(e);
-	}
+  
+  try {
+    eval(code);
+  } catch (e) {
+    alert(e);
+  }
+  // Respuesta()
 }
 function Reset(){
   var runButton = document.getElementById('runButton');

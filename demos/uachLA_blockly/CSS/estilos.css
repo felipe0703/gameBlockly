@@ -54,16 +54,18 @@ header{
   background: #ccc;
 }
 #botones button{
-  display: inline-block;
-  display:block;
-  margin:20px auto;
+  /*display: inline-block;*/
+  /*display:block;*/
+  /*margin:20px 8vw;*/
+  margin: 20px 5em;
+  width: 200px;
   /*z-index: 0;*/
 }
 #botones a{
   /*display: inline-block;*/
   /*display:block;*/
-  margin:20px 8vw;
-  /*text-align: center;*/
+  margin:20px 5em;
+  width: 200px;
 }
 #lienzo{
   background: url(../IMG/grid.jpg);

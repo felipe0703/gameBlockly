@@ -63,39 +63,17 @@
 
         <div class="respuesta  row">
 
-          <!-- <form action="">
-            <div class="form-group">
-              <label for="numerador">
-                Ingrese Respuesta:
-              </label>
-              <input class="numerador form-control form-control-lg" type="text" name="numerador" placeholder="Numerador">
-              <hr>
-              <input class="denominador form-control form-control-lg" type="text" name="denominador" placeholder="Denominador">
-            </div>
-          
-            <input class="btnAceptar btn btn-primary btn-block" type="submit" name="" value="Aceptar">
-          </form> -->
 
           <label >
                 Ingrese Respuesta:
           </label>
-
-          <!-- opcion3 -->
-        <!--  <div class="input-group">
-          <input type="text" class="form-control">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="">/</span>
-          </div>
-          <input type="text" class="form-control">
-        </div> -->
-          <!-- opcion2 -->
 
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text">numerador</span>
             </div>
-            <input type="text" id="Numerador" name="hola" class="form-control" >
+            <input type="number" id="Numerador" name="hola" min="0" max="99" class="form-control" >
             <!-- aria-label="Default" -->
           </div>
 
@@ -103,11 +81,11 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Denominador</span>
             </div>
-            <input type="text" id="Denominador" class="form-control" aria-label="Default">            
+            <input type="text" id="Denominador" class="form-control" maxlength="2" aria-label="Default">            
           </div>
 
-          <button class="btn btn-primary btn-lg btn-block" onclick="Respuesta()">Aceptar</button>
-        </div>
+          <!-- <button class="btn btn-primary btn-lg btn-block" onclick="">Aceptar</button>
+                   -->        </div>
       </div>
     </section>
 
