@@ -58,7 +58,7 @@ var bloques = [{x:0, y:0, ancho: 400, alto: 10, x1:null, x2:null, y1:null, y2:nu
 			   {x:240, y:140, ancho:100, alto:10, x1:null, x2:null, y1:null, y2:null},
 			   {x:150, y:140, ancho:10, alto:170, x1:null, x2:null, y1:null, y2:null},
 			   {x:150, y:300, ancho:190, alto:10, x1:null, x2:null, y1:null, y2:null},
-			   {x:240, y:220, ancho:100, alto:10, x1:null, x2:null, y1:null, y2:null},
+			   {x:240, y:210, ancho:100, alto:10, x1:null, x2:null, y1:null, y2:null},
 			   {x:240, y:140, ancho:10, alto:80, x1:null, x2:null, y1:null, y2:null}
 			   ];
 
