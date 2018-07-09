@@ -111,7 +111,18 @@ function Respuesta(){
     alert("no es correcto");
   }
 }
+function Enviar() {
+  
+  var res_numerador = document.getElementById("Numerador").value;
+  var res_Denominador = document.getElementById("Denominador").value;
 
+  if (res_numerador > 0 && res_Denominador > 0){
+    alert("Su resultado se a guardado");
+    //De aqui guardar el resultado y luego comparar con el resultado en la grafica
+  }else{
+    alert("Ingrese un resultado");
+  }
+}
 
 // BlocklyGames.bindClick('runButton', runButtonClick);
 // BlocklyGames.bindClick('resetButton', resetButtonClick);
