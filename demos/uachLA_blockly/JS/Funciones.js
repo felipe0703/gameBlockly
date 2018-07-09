@@ -1,27 +1,23 @@
 var code;
-
+var permitir;
 /*=========================================
 =            funciones botones            =
 =========================================*/
 
 Blockly.JavaScript['direction_up'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'arriba();\n';
+  var code = 'Arriba();\n';
   return code;
 };
 Blockly.JavaScript['direction_down'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'abajo();\n';
+  var code = 'Abajo();\n';
   return code;
 };
 Blockly.JavaScript['direction_right'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'derecha();\n';
+  var code = 'Derecha();\n';
   return code;
 };
 Blockly.JavaScript['direction_left'] = function(block) {
-  // TODO: Assemble JavaScript into code variable.
-  var code = 'izquierda();\n';
+  var code = 'Izquierda();\n';
   return code;
 };
 
@@ -77,19 +73,6 @@ onchange();
 
 /*=====  End of limite bloques  ======*/
 
-function arriba(){
-	Arriba();
-}
-function abajo(){
-	Abajo();
-}
-function derecha(){
-	Derecha();
-}
-function izquierda(){
-	Izquierda();
-}
-
 function Ejecutar() {
 	
   var runButton = document.getElementById('runButton');
@@ -101,7 +84,7 @@ function Ejecutar() {
   runButton.style.display = 'none';
   resetButton.style.display = 'inline';
   workspacePlayground.traceOn(true);
-
+  permitir = true;
   
   try {
     eval(code);
@@ -110,6 +93,7 @@ function Ejecutar() {
   }
   // Respuesta()
 }
+
 function Reset(){
   var runButton = document.getElementById('runButton');
   runButton.style.display = 'inline';
@@ -119,17 +103,13 @@ function Reset(){
 }
 
 function Respuesta(){
-        var res_numerador = document.getElementById("Numerador").value;
-        var res_Denominador = document.getElementById("Denominador").value;
-        if(res_numerador == 11 && res_Denominador== 2){
-          alert("correcto");
-        }else{
-          alert("no es correcto");
-        }
-        
-      }
-function instrucciones(){
-
+  var res_numerador = document.getElementById("Numerador").value;
+  var res_Denominador = document.getElementById("Denominador").value;
+  if(res_numerador == 11 && res_Denominador== 2){
+    alert("correcto");
+  }else{
+    alert("no es correcto");
+  }
 }
 
 

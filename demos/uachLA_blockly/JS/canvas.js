@@ -2,6 +2,11 @@
 ANIMACION REQUEST ANIMATION FRAME
 =============================================*/
 
+/*  son las versiones para navegadores antiguos
+	window.mozRequestAnimationFrame, 
+	window.webkitRequestAnimationFrame 
+	window.msRequestAnimationFrame;*/
+
 var frame = window.requestAnimationFrame || 
 		    window.mozRequestAnimationFrame || 
 			window.webkitRequestAnimationFrame || 
@@ -10,19 +15,29 @@ var frame = window.requestAnimationFrame ||
 var canvas = document.querySelector("#lienzo");
 var ctx = canvas.getContext("2d");
 
+var sprite =  new Image();
+sprite.src = "IMG/opcion1.png";
+var ubicacioneX = 0;
+var numero = 0;
+var animacion;
+var jugador_posX_final;
+var jugador_posY_final;
+var indiceArreglo = 0;
+var sumaPos = true;
+
 /*=============================================
 PROPIEDADES DEL OBJETO JUGADOR
 =============================================*/
 
 var jugador = {
 	x: 35,
-	y: 85,
+	y: 75,
 	ancho: 50,
 	alto: 50,
 	color: "red",
 	movimiento_x: 0,
 	movimiento_y: 0,
-	velocidad: 3,
+	velocidad: 1,
 	x1: null,
 	x2: null,
 	y1: null,
@@ -57,105 +72,152 @@ var datos = {
 	abajo: false,
 }
 
+
+
 /*=======================================
-=            metodos eventos            =
-=======================================*/
+=          INGRESO DE BLOQUES           =
+=======================================*/ 
+var arreglo_bloques = [];
+var borrarArreglo = false;
+
 function Arriba(){
-	// for (var i = 0; i <= 75; i++) {
-		jugador.y -= 75;
-	// }
+	arreglo_bloques.push("arriba");
 }
 function Abajo(){
-	jugador.y += 75;
+	arreglo_bloques.push("abajo");
 }
 function Derecha(){
-	// for (var i = 0; i <= 75; i++) {
-		jugador.x += 75;
-	// }
+	arreglo_bloques.push("derecha");
 }
 function Izquierda(){
-	jugador.x -= 75;
+	arreglo_bloques.push("izquierda");
 }
 
+
+/*===========================================================
+=            resetieando la posiscion del jugador           =
+===========================================================*/
 function reset(){
-				jugador.x = 35;
-				jugador.y = 85;
-			}
+	jugador.x = 35;
+	jugador.y = 75;
+
+	datos.derecha = false;
+	datos.izquierda = false;
+	datos.arriba = false;
+	datos.abajo = false;
+
+	jugador.movimiento_x = 0;
+	borrarArreglo = true;
+	permitir = false;
+	indiceArreglo = 0;
+	sumaPos = true;
+}
 
 
 /*=============================================
-METODOS DEL OBJETO JUEGO
+			METODOS DEL OBJETO JUEGO
 =============================================*/			   
 
 var juego = {
 
-	 teclado: function(){
-
-	 	/*=============================================
-		EVENTOS TECLADO
-		=============================================*/
-
-		document.addEventListener("keydown", juego.oprimir)
-		document.addEventListener("keyup", juego.soltar)
-
-	 },
-
-	 oprimir: function(tecla){
-
-	 	/*=============================================
-		OPRIMIR TECLADO
-		=============================================*/
-	 	
-	 	// tecla.preventDefault();
-	 	switch(tecla.keyCode){
-	 		case 37: datos.izquierda = true; break;
-	 		case 38: datos.arriba = true; break;
-	 		case 39: datos.derecha = true; break;
-	 		case 40: datos.abajo = true; break;
-	 	}
-
-	 },
-
-	 soltar: function(tecla){
-
-	 	/*=============================================
-		SOLTAR TECLADO
-		=============================================*/
-
-	 	// tecla.preventDefault();
-	 	switch(tecla.keyCode){
-	 		case 37: datos.izquierda = false; break;
-	 		case 38: datos.arriba = false; break;
-	 		case 39: datos.derecha = false; break;
-	 		case 40: datos.abajo = false; break;
-	 	}
-
-	 },
-
 	 tiempo: function(){
-
 	 	/*=============================================
-		MOVIMIENTO HORIZONTAL JUGADOR
+				BORRA EL ARREGLO DE BLOQUES
 		=============================================*/
+	 	if(borrarArreglo){
+	 		if(arreglo_bloques.length != 0){
+				arreglo_bloques.pop()
+			}else{
 
-	 	jugador.x += jugador.movimiento_x;
-	 	
-	 	if(datos.izquierda){jugador.movimiento_x = -jugador.velocidad; jugador.movimiento_y = 0}
-	 	if(datos.derecha){jugador.movimiento_x = jugador.velocidad; jugador.movimiento_y = 0}
-	 	if(!datos.izquierda && !datos.derecha){jugador.movimiento_x = 0}
+				borrarArreglo = false;
+			}
+	 	}
 
 	 	/*=============================================
-		MOVIMIENTO VERTICAL JUGADOR
+					MOVIMIENTOS JUGADOR
 		=============================================*/
+	 	if(arreglo_bloques.length != 0 && permitir == true){
 
-	 	jugador.y += jugador.movimiento_y;
-	 	
-	 	if(datos.arriba){jugador.movimiento_y = -jugador.velocidad; jugador.movimiento_x = 0}
-	 	if(datos.abajo){jugador.movimiento_y = jugador.velocidad; jugador.movimiento_x = 0}
-	 	if(!datos.arriba && !datos.abajo){jugador.movimiento_y = 0}
+	 		/*=============================================
+			MOVIMIENTO HORIZONTAL JUGADOR
+			=============================================*/
+
+			if(arreglo_bloques[indiceArreglo] == "derecha" && indiceArreglo < arreglo_bloques.length){
+				if(sumaPos){
+					jugador_posX_final = jugador.x + 75;
+					sumaPos =false;
+				}
+
+				jugador.movimiento_x = jugador.velocidad;
+
+				if(jugador.x != jugador_posX_final){
+					jugador.x += jugador.movimiento_x;
+				}else{
+					indiceArreglo++;
+					sumaPos=true;
+				}
+			}
+
+
+			if(arreglo_bloques[indiceArreglo] == "izquierda" && indiceArreglo < arreglo_bloques.length){
+				if(sumaPos){
+					jugador_posX_final = jugador.x - 75;
+					sumaPos =false;
+				}
+
+				jugador.movimiento_x = -jugador.velocidad;
+
+				if(jugador.x != jugador_posX_final){
+					jugador.x += jugador.movimiento_x;
+				}else{
+					indiceArreglo++;
+					sumaPos=true;
+				}
+			}	
+			/*=============================================
+			MOVIMIENTO VERTICAL JUGADOR
+			=============================================*/
+
+			if(arreglo_bloques[indiceArreglo] == "arriba" && indiceArreglo < arreglo_bloques.length){
+				if(sumaPos){
+					jugador_posY_final = jugador.y - 75;
+					sumaPos =false;
+				}
+
+				jugador.movimiento_y = -jugador.velocidad;
+
+				if(jugador.y != jugador_posY_final){
+					jugador.y += jugador.movimiento_y;
+				}else{
+					indiceArreglo++;	
+					sumaPos=true;
+				}
+			}
+
+			if(arreglo_bloques[indiceArreglo] == "abajo" && indiceArreglo < arreglo_bloques.length){
+				if(sumaPos){
+					jugador_posY_final = jugador.y + 75;
+					sumaPos =false;
+				}
+
+				jugador.movimiento_y = jugador.velocidad;
+
+				if(jugador.y != jugador_posY_final){
+					jugador.y += jugador.movimiento_y;
+				}else{
+					indiceArreglo++;
+					sumaPos=true;
+				}
+			}
+
+		 	if(indiceArreglo == arreglo_bloques.length){
+		 		permitir = false;
+		 	}
+	 	}
+
 
 	 	/*=============================================
-		COLISIONES
+						COLISIONES
 		=============================================*/
 		for(var i = 0; i < bloques.length; i++){
 
@@ -190,7 +252,7 @@ var juego = {
 			if(colisiones() && jugador.x2 < bloques[i].x1 + jugador.movimiento_x){
 
 				jugador.x = 35;
-				jugador.y = 85;
+				jugador.y = 75;
 				jugador.movimiento_x = 0;
 			}
 
@@ -198,7 +260,7 @@ var juego = {
 			if(colisiones() && jugador.x1 - jugador.movimiento_x > bloques[i].x2){
 						
 				jugador.x = 35;
-				jugador.y = 85;
+				jugador.y = 75;
 				jugador.movimiento_x = 0;
 			}
 
@@ -206,7 +268,7 @@ var juego = {
 			if(colisiones() && jugador.y2 < bloques[i].y1 + jugador.movimiento_y){
 				
 				jugador.x = 35;
-				jugador.y = 85;
+				jugador.y = 75;
 				jugador.movimiento_y = 0;
 			}
 
@@ -214,7 +276,7 @@ var juego = {
 			if(colisiones() && jugador.y1 - jugador.movimiento_y > bloques[i].y2){
 						
 				jugador.x = 35;
-				jugador.y = 85;
+				jugador.y = 75;
 				jugador.movimiento_y = 0;
 			}
 
@@ -232,7 +294,7 @@ var juego = {
 		ACTIVAR LINEA DE TIEMPO PARA EL METODO TIEMPO
 		=============================================*/
 
-		frame(juego.tiempo)
+		animacion = frame(juego.tiempo)
 	},
 
 	canvas: function(){
@@ -241,22 +303,29 @@ var juego = {
 		CANVAS
 		=============================================*/
 
+		if(numero >= 600){numero = 0}else{numero+=10}
+
+		for(var i = 0; i <= numero; i+=100){
+
+			if(numero >= i){ubicacionX = i}
+		}
 		//BORRAMOS LIENZO
 
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 
 		//DIBUJAR JUGADOR
+		
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+		ctx.drawImage(sprite, ubicacionX, 0, 100, 100, jugador.x, jugador.y,jugador.ancho,jugador.alto);
 
-		
-		var img=document.getElementById("pj1");
-		ctx.drawImage(img, jugador.x, jugador.y,jugador.ancho,jugador.alto);
-		
+
+		/*var img = document.getElementById("pj1");
+		ctx.drawImage(img, jugador.x, jugador.y,jugador.ancho,jugador.alto);*/		
 		//ctx.fillStyle = jugador.color;
 		//ctx.fillRect(jugador.x,jugador.y,jugador.ancho,jugador.alto);
 
 		//DIBUJAR BLOQUES
-
-		ctx.fillStyle=bloques[0].color;
+		ctx.fillStyle = bloques[0].color;
 
 		for(var i = 0; i < bloques.length; i ++){
 
@@ -265,5 +334,6 @@ var juego = {
 	}
 }
 	
-// juego.teclado();
 juego.tiempo();
+
+
