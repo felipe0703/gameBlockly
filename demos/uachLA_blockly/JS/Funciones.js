@@ -91,7 +91,7 @@ function Ejecutar() {
   } catch (e) {
     alert(e);
   }
-  // Respuesta()
+  Respuesta()
 }
 
 function Reset(){
@@ -102,15 +102,8 @@ function Reset(){
   reset();
 }
 
-function Respuesta(){
-  var res_numerador = document.getElementById("Numerador").value;
-  var res_Denominador = document.getElementById("Denominador").value;
-  if(res_numerador == 11 && res_Denominador== 2){
-    alert("correcto");
-  }else{
-    alert("no es correcto");
-  }
-}
+
+
 
 
 // BlocklyGames.bindClick('runButton', runButtonClick);

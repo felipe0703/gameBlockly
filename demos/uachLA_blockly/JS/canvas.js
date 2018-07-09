@@ -26,6 +26,9 @@ var jugador_posX_final;
 var jugador_posY_final;
 var indiceArreglo = 0;
 var sumaPos = true;
+var numBloques = 0;
+var posX_respuesta_correcta;
+var posY_respuesta_correcta;
 
 /*=============================================
 PROPIEDADES DEL OBJETO JUGADOR
@@ -84,15 +87,19 @@ var borrarArreglo = false;
 
 function Arriba(){
 	arreglo_bloques.push("arriba");
+	numBloques++;
 }
 function Abajo(){
 	arreglo_bloques.push("abajo");
+	numBloques++;
 }
 function Derecha(){
 	arreglo_bloques.push("derecha");
+	numBloques++;
 }
 function Izquierda(){
 	arreglo_bloques.push("izquierda");
+	numBloques++;
 }
 
 
@@ -103,17 +110,13 @@ function reset(){
 	jugador.x = 35;
 	jugador.y = 75;
 
-	datos.derecha = false;
-	datos.izquierda = false;
-	datos.arriba = false;
-	datos.abajo = false;
-
 	jugador.movimiento_x = 0;
 	borrarArreglo = true;
 	permitir = false;
 	indiceArreglo = 0;
 	sumaPos = true;
 	movimiento_Sprite = false;
+	numBloques = 0;
 }
 
 
@@ -124,6 +127,7 @@ function reset(){
 var juego = {
 
 	 tiempo: function(){
+	 	// console.log(numBloques)
 	 	/*=============================================
 				BORRA EL ARREGLO DE BLOQUES
 		=============================================*/
