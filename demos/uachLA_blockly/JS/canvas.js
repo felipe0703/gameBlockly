@@ -17,6 +17,8 @@ var ctx = canvas.getContext("2d");
 
 var sprite =  new Image();
 sprite.src = "IMG/opcion1.png";
+
+var movimiento_Sprite = false;
 var ubicacioneX = 0;
 var numero = 0;
 var animacion;
@@ -111,6 +113,7 @@ function reset(){
 	permitir = false;
 	indiceArreglo = 0;
 	sumaPos = true;
+	movimiento_Sprite = false;
 }
 
 
@@ -143,6 +146,7 @@ var juego = {
 			=============================================*/
 
 			if(arreglo_bloques[indiceArreglo] == "derecha" && indiceArreglo < arreglo_bloques.length){
+				movimiento_Sprite = true;
 				if(sumaPos){
 					jugador_posX_final = jugador.x + 75;
 					sumaPos =false;
@@ -155,11 +159,13 @@ var juego = {
 				}else{
 					indiceArreglo++;
 					sumaPos=true;
+					movimiento_Sprite = false;
 				}
 			}
 
 
 			if(arreglo_bloques[indiceArreglo] == "izquierda" && indiceArreglo < arreglo_bloques.length){
+				movimiento_Sprite = true;
 				if(sumaPos){
 					jugador_posX_final = jugador.x - 75;
 					sumaPos =false;
@@ -172,6 +178,7 @@ var juego = {
 				}else{
 					indiceArreglo++;
 					sumaPos=true;
+					movimiento_Sprite = false;
 				}
 			}	
 			/*=============================================
@@ -179,6 +186,7 @@ var juego = {
 			=============================================*/
 
 			if(arreglo_bloques[indiceArreglo] == "arriba" && indiceArreglo < arreglo_bloques.length){
+				movimiento_Sprite = true;
 				if(sumaPos){
 					jugador_posY_final = jugador.y - 75;
 					sumaPos =false;
@@ -191,10 +199,12 @@ var juego = {
 				}else{
 					indiceArreglo++;	
 					sumaPos=true;
+					movimiento_Sprite = false;
 				}
 			}
 
 			if(arreglo_bloques[indiceArreglo] == "abajo" && indiceArreglo < arreglo_bloques.length){
+				movimiento_Sprite = true;
 				if(sumaPos){
 					jugador_posY_final = jugador.y + 75;
 					sumaPos =false;
@@ -207,6 +217,7 @@ var juego = {
 				}else{
 					indiceArreglo++;
 					sumaPos=true;
+					movimiento_Sprite = false;
 				}
 			}
 
@@ -314,9 +325,15 @@ var juego = {
 		ctx.clearRect(0,0,canvas.width,canvas.height);
 
 		//DIBUJAR JUGADOR
-		
+
 		ctx.clearRect(0,0,canvas.width,canvas.height);
-		ctx.drawImage(sprite, ubicacionX, 0, 100, 100, jugador.x, jugador.y,jugador.ancho,jugador.alto);
+
+		if (movimiento_Sprite) {
+			ctx.drawImage(sprite, ubicacionX, 0, 100, 100, jugador.x, jugador.y,jugador.ancho,jugador.alto);
+		}else{
+			ctx.drawImage(sprite, 0, 0, 100, 100, jugador.x, jugador.y,jugador.ancho,jugador.alto);
+		}
+		
 
 
 		/*var img = document.getElementById("pj1");
