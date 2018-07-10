@@ -424,4 +424,5 @@ function RespuestaBloques(){
 	console.log("desaciertos texto ==> "+desaciertos_CuadroTexto)
 	console.log("desaciertos camino errado ==> "+desaciertos_CaminoErrado)
 	console.log("desaciertos totales ==> "+desacierto_Totales)
+	console.log("numero de bloques ==> "+numBloques)
 }
