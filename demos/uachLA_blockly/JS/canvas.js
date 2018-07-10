@@ -416,13 +416,14 @@ function Respuesta(){
 }
 
 function RespuestaBloques(){
-	console.log("intentos ==> "+intentos_Totales)
-	console.log("aciertos bloques ==> "+aciertos_Bloques)
-	console.log("aciertos texto == >"+aciertos_CuadroTexto)
-	console.log("aciertos totales ==> "+aciertos_Totales)
-	console.log("desaciertos bloques ==> "+desacierto_Bloques)
-	console.log("desaciertos texto ==> "+desaciertos_CuadroTexto)
-	console.log("desaciertos camino errado ==> "+desaciertos_CaminoErrado)
-	console.log("desaciertos totales ==> "+desacierto_Totales)
-	console.log("numero de bloques ==> "+numBloques)
+	// console.log("intentos ==> "+intentos_Totales)
+	// console.log("aciertos bloques ==> "+aciertos_Bloques)
+	// console.log("aciertos texto == >"+aciertos_CuadroTexto)
+	// console.log("aciertos totales ==> "+aciertos_Totales)
+	// console.log("desaciertos bloques ==> "+desacierto_Bloques)
+	// console.log("desaciertos texto ==> "+desaciertos_CuadroTexto)
+	// console.log("desaciertos camino errado ==> "+desaciertos_CaminoErrado)
+	// console.log("desaciertos totales ==> "+desacierto_Totales)
+	// console.log("numero de bloques ==> "+numBloques)
+	pushFirebase_datos(1,1, intentos_Totales, aciertos_Bloques, aciertos_CuadroTexto, aciertos_Totales, desacierto_Bloques, desaciertos_CuadroTexto, desaciertos_CaminoErrado, desacierto_Totales, numBloques);
 }

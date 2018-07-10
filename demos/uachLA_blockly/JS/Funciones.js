@@ -39,19 +39,19 @@ function generarCodigo(event) {
     		console.log(event.newInputName)  
         console.log(event.newCoordinate)*/
         // console.log(code)
-        pushFirebase(1,1,5,"BLOCK_MOVE",event.newCoordinate);
+        pushFirebase_bloques(1,1,"BLOCK_MOVE",event.newCoordinate);
     }
     if (event.type == Blockly.Events.BLOCK_DELETE) {
     	code = Blockly.JavaScript.workspaceToCode(workspacePlayground);
-    	pushFirebase(1,1,5,"BLOCK_DELETE",'NULL');
+    	pushFirebase_bloques(1,1,"BLOCK_DELETE",'NULL');
     }
     if (event.type == Blockly.Events.BLOCK_CREATE) {
     	code = Blockly.JavaScript.workspaceToCode(workspacePlayground);
-    	pushFirebase(1,1,5,"BLOCK_CREATE",'NULL');
+    	pushFirebase_bloques(1,1,"BLOCK_CREATE",'NULL');
     }
     if (event.type == Blockly.Events.BLOCK_CHANGE) {
     	code = Blockly.JavaScript.workspaceToCode(workspacePlayground);
-    	pushFirebase(1,1,5,"BLOCK_CHANGE",'NULL');
+    	pushFirebase_bloques(1,1,"BLOCK_CHANGE",'NULL');
     }
 }
 workspacePlayground.addChangeListener(generarCodigo);
