@@ -68,7 +68,8 @@ header{
   width: 200px;
 }
 #lienzo{
-  background: url(../IMG/grid.jpg);
+  background: url(../IMG/grid.jpg)no-repeat;
+  background-size:contain;
   /*background: rgba(0,0,0,.5);*/
 }
 .pregunta{
